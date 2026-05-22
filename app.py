@@ -1,24 +1,46 @@
 import streamlit as st
 
 # Configuración inicial
-st.set_page_config(page_title="Escuela de Patinaje", layout="wide")
+st.set_page_config(page_title="Club de Patinaje AJJAX", layout="wide")
 
-# Sidebar con menú principal
-menu_principal = st.sidebar.radio(
-    "Menú Principal",
-    ["INICIO", "DEPORTISTA", "PAGOS", "TIENDA", "EVENTOS", "CLUB", "NOSOTROS"]
+# Encabezado en el sidebar
+st.sidebar.markdown(
+    "<h1 style='text-align: center; color: #2E86C1;'>🏆 Club de Patinaje AJJAX</h1>",
+    unsafe_allow_html=True
+)
+
+# Menú principal en sidebar con más espacio y estilo
+menu_principal = st.sidebar.selectbox(
+    "",
+    ["INICIO", "DEPORTISTA", "PAGOS", "TIENDA", "EVENTOS", "CLUB", "NOSOTROS"],
+    format_func=lambda x: f"➡️ {x}"
+)
+
+# Íconos de redes sociales en círculo
+st.sidebar.markdown(
+    """
+    <div style='text-align: center; margin-top: 30px;'>
+        <a href='https://facebook.com' target='_blank'>
+            <img src='https://cdn-icons-png.flaticon.com/512/733/733547.png' width='40' style='border-radius:50%; margin:8px;'>
+        </a>
+        <a href='https://instagram.com' target='_blank'>
+            <img src='https://cdn-icons-png.flaticon.com/512/2111/2111463.png' width='40' style='border-radius:50%; margin:8px;'>
+        </a>
+        <a href='https://wa.me/573001234567' target='_blank'>
+            <img src='https://cdn-icons-png.flaticon.com/512/733/733585.png' width='40' style='border-radius:50%; margin:8px;'>
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
 )
 
 # Renderizado según menú seleccionado
 if menu_principal == "INICIO":
-    st.title("🏆 Escuela de Patinaje")
-    st.write("Bienvenido a la aplicación de la Escuela de Patinaje")
-
-    # Submenús horizontales con tabs
+    st.title("Bienvenido al Club de Patinaje AJJAX")
     tabs = st.tabs(["Presentación", "Video Introductorio", "Contacto"])
     with tabs[0]:
         st.subheader("Presentación")
-        st.write("Aquí puedes mostrar información general de la escuela.")
+        st.write("Información general del club.")
     with tabs[1]:
         st.subheader("Video Introductorio")
         st.video("intro.mp4")
@@ -67,26 +89,56 @@ elif menu_principal == "TIENDA":
         st.write("Aquí se mostrarán los artículos disponibles.")
     with tabs[1]:
         st.header("Carrito de compras")
+        st.write("Aquí se gestionará el carrito.")
     with tabs[2]:
         st.header("Historial de compras")
+        st.write("Listado de compras anteriores.")
 
 elif menu_principal == "EVENTOS":
     tabs = st.tabs(["Competencias", "Calendarios", "Galerías", "Noticias"])
-    for i, nombre in enumerate(["Competencias", "Calendarios", "Galerías", "Noticias"]):
-        with tabs[i]:
-            st.header(nombre)
-            st.write(f"Sección seleccionada: {nombre}")
+    with tabs[0]:
+        st.header("Competencias")
+        st.write("Información sobre competencias.")
+    with tabs[1]:
+        st.header("Calendarios")
+        st.write("Calendario de actividades.")
+    with tabs[2]:
+        st.header("Galerías")
+        st.write("Fotos y videos de eventos.")
+    with tabs[3]:
+        st.header("Noticias")
+        st.write("Últimas novedades del club.")
 
 elif menu_principal == "CLUB":
     tabs = st.tabs(["Historia", "Resoluciones", "Reglamento", "Manual de convivencia", "Nuestra misión"])
-    for i, nombre in enumerate(["Historia", "Resoluciones", "Reglamento", "Manual de convivencia", "Nuestra misión"]):
-        with tabs[i]:
-            st.header(nombre)
-            st.write(f"Contenido de {nombre}")
+    with tabs[0]:
+        st.header("Historia")
+        st.write("Reseña histórica del club.")
+    with tabs[1]:
+        st.header("Resoluciones")
+        st.write("Resoluciones oficiales.")
+    with tabs[2]:
+        st.header("Reglamento")
+        st.write("Normas del club.")
+    with tabs[3]:
+        st.header("Manual de convivencia")
+        st.write("Reglas de convivencia.")
+    with tabs[4]:
+        st.header("Nuestra misión")
+        st.write("Misión y visión del club.")
 
 elif menu_principal == "NOSOTROS":
     tabs = st.tabs(["Nuestro equipo", "Política de datos", "PQRS", "Contáctanos"])
-    for i, nombre in enumerate(["Nuestro equipo", "Política de datos", "PQRS", "Contáctanos"]):
-        with tabs[i]:
-            st.header(nombre)
-            st.write(f"Sección seleccionada: {nombre}")
+    with tabs[0]:
+        st.header("Nuestro equipo")
+        st.write("Información sobre el equipo de trabajo.")
+    with tabs[1]:
+        st.header("Política de datos")
+        st.write("Política de tratamiento de datos personales.")
+    with tabs[2]:
+        st.header("PQRS")
+        st.write("Formulario de Peticiones, Quejas, Reclamos y Sugerencias.")
+    with tabs[3]:
+        st.header("Contáctanos")
+        st.write("Información de contacto del club.")
+
