@@ -9,25 +9,26 @@ st.sidebar.markdown(
     unsafe_allow_html=True
 )
 
-# Menú principal en sidebar con más espacio y estilo
-menu_principal = st.sidebar.selectbox(
+# Menú principal fijo en sidebar
+st.sidebar.markdown("## Navegación")
+menu_principal = st.sidebar.radio(
     "",
     ["INICIO", "DEPORTISTA", "PAGOS", "TIENDA", "EVENTOS", "CLUB", "NOSOTROS"],
-    format_func=lambda x: f"➡️ {x}"
+    label_visibility="collapsed"
 )
 
 # Íconos de redes sociales en círculo
 st.sidebar.markdown(
     """
-    <div style='text-align: center; margin-top: 30px;'>
+    <div style='text-align: center; margin-top: 40px;'>
         <a href='https://facebook.com' target='_blank'>
-            <img src='https://cdn-icons-png.flaticon.com/512/733/733547.png' width='40' style='border-radius:50%; margin:8px;'>
+            <img src='https://cdn-icons-png.flaticon.com/512/733/733547.png' width='40' style='border-radius:50%; margin:10px;'>
         </a>
         <a href='https://instagram.com' target='_blank'>
-            <img src='https://cdn-icons-png.flaticon.com/512/2111/2111463.png' width='40' style='border-radius:50%; margin:8px;'>
+            <img src='https://cdn-icons-png.flaticon.com/512/2111/2111463.png' width='40' style='border-radius:50%; margin:10px;'>
         </a>
         <a href='https://wa.me/573001234567' target='_blank'>
-            <img src='https://cdn-icons-png.flaticon.com/512/733/733585.png' width='40' style='border-radius:50%; margin:8px;'>
+            <img src='https://cdn-icons-png.flaticon.com/512/733/733585.png' width='40' style='border-radius:50%; margin:10px;'>
         </a>
     </div>
     """,
@@ -62,13 +63,10 @@ elif menu_principal == "DEPORTISTA":
                 st.success("Inscripción registrada correctamente")
     with tabs[1]:
         st.header("Ficha Deportista")
-        st.write("Aquí se mostrará la información del deportista.")
     with tabs[2]:
         st.header("Póliza")
-        st.write("Consulta y carga de pólizas.")
     with tabs[3]:
         st.header("Documentación")
-        st.write("Gestión de documentos asociados.")
 
 elif menu_principal == "PAGOS":
     tabs = st.tabs(["Realizar Pago", "Subir Soporte", "Solicitud de Reembolso"])
@@ -86,59 +84,42 @@ elif menu_principal == "TIENDA":
     tabs = st.tabs(["Catálogo", "Carrito", "Historial de Compras"])
     with tabs[0]:
         st.header("🛒 Catálogo de productos")
-        st.write("Aquí se mostrarán los artículos disponibles.")
     with tabs[1]:
         st.header("Carrito de compras")
-        st.write("Aquí se gestionará el carrito.")
     with tabs[2]:
         st.header("Historial de compras")
-        st.write("Listado de compras anteriores.")
 
 elif menu_principal == "EVENTOS":
     tabs = st.tabs(["Competencias", "Calendarios", "Galerías", "Noticias"])
     with tabs[0]:
         st.header("Competencias")
-        st.write("Información sobre competencias.")
     with tabs[1]:
         st.header("Calendarios")
-        st.write("Calendario de actividades.")
     with tabs[2]:
         st.header("Galerías")
-        st.write("Fotos y videos de eventos.")
     with tabs[3]:
         st.header("Noticias")
-        st.write("Últimas novedades del club.")
 
 elif menu_principal == "CLUB":
     tabs = st.tabs(["Historia", "Resoluciones", "Reglamento", "Manual de convivencia", "Nuestra misión"])
     with tabs[0]:
         st.header("Historia")
-        st.write("Reseña histórica del club.")
     with tabs[1]:
         st.header("Resoluciones")
-        st.write("Resoluciones oficiales.")
     with tabs[2]:
         st.header("Reglamento")
-        st.write("Normas del club.")
     with tabs[3]:
         st.header("Manual de convivencia")
-        st.write("Reglas de convivencia.")
     with tabs[4]:
         st.header("Nuestra misión")
-        st.write("Misión y visión del club.")
 
 elif menu_principal == "NOSOTROS":
     tabs = st.tabs(["Nuestro equipo", "Política de datos", "PQRS", "Contáctanos"])
     with tabs[0]:
         st.header("Nuestro equipo")
-        st.write("Información sobre el equipo de trabajo.")
     with tabs[1]:
         st.header("Política de datos")
-        st.write("Política de tratamiento de datos personales.")
     with tabs[2]:
         st.header("PQRS")
-        st.write("Formulario de Peticiones, Quejas, Reclamos y Sugerencias.")
     with tabs[3]:
         st.header("Contáctanos")
-        st.write("Información de contacto del club.")
-
